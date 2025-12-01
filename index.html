@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<head>
+    <title>clicker</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/buttion/press.png">
+</head>
+<body>
+    <img src="assets/images/buttion/press.png" alt="buttion" id="image">
+    <h2 id="text">0</h2>
+    <p id="para">warning data is saved threw cookies, if cookies are cleared you will lose your data</p>
+    <p id="para2">if data is corrupted go into the "dev" folder and click on "clear-data.html"</p>
+    <img src="" id="blue">
+    <img src="" id="scam">
+</body>
+</html>
+
+<script>
+//vars
+var image = document.getElementById("image");
+var points = ("0")
+var click =  new Audio ("assets/sounds/Click.wav")
+var random = ("1")
+var random2 = null
+var quit = ("0")
+var blue = document.getElementById("blue")
+var sound = new Audio ("assets/scenes/bankrupt/dang.mp3")
+var true_clicks = localStorage.getItem("points2")
+var gun_regulated = false
+var random3 = null
+var data_save = null
+var data_reset = false
+
+//on click
+
+//data fix
+
+
+//adding value
+
+image.onclick = function(e) {
+   alert(points)
+   alert(localStorage.getItem("points"))
+    true_clicks = parseInt(true_clicks) + parseInt("1")
+ localStorage.setItem("points2", true_clicks)
+    if (random == 1){
+random = Math.floor((Math.random() * 2) + 1);
+points = parseInt(points) + parseInt("1")
+image.src = ("assets/images/buttion/pressed.png")
+click.play()
+setTimeout(() => {
+        if (random == 1){
+            image.src = ("assets/images/buttion/press.png")
+        }
+        else{
+            image.src = ("assets/images/buttion/green-press.png")
+        }
+    }, 300);
+ }
+ else{
+    random = Math.floor((Math.random() * 2) + 1);
+    points = parseInt(points) + parseInt("-1")
+    image.src = ("assets/images/buttion/green-pressed.png")
+    click.play()
+    setTimeout(() => {
+        if (random == 1){
+            image.src = ("assets/images/buttion/press.png")
+        }
+        else{
+            image.src = ("assets/images/buttion/green-press.png")
+        }
+    }, 300);
+ }
+  document.getElementById("text").innerText = (points)
+localStorage.setItem("points", points)
+  
+if (points <= -1) {
+   sound.play()
+    setTimeout(() => {
+        window.location.assign("assets/scenes/bankrupt/gameover.html")
+    }, 1000);
+    
+}
+
+//scaming steve
+random3 = math.floor((math.random() *65 ) + 1)
+if (random3 == 42){
+window.alert("uiughg")
+}
+
+//irs
+
+
+if (quit == 0){
+    quit = 1
+    blue.src = "assets/images/buttion/blue-press.png"
+}
+
+if (true_clicks >= 100){
+    gun_regulated = true
+}
+
+}
+
+//starting oporations
+
+setTimeout(() => {
+    document.getElementById("para").innerText = null
+    document.getElementById("para2").innerText = null
+}, 3000);
+
+
+//data  save retrival
+
+  if (localStorage.getItem("points") == null || localStorage.getItem("points") == "0" || localStorage.getItem("points") == NaN || localStorage.getItem("points") !== Number || localStorage.getItem("points") == ("NaN") || localStorage.getItem("points") == ("null")) {  
+   //alert("data not valid")
+    points = 0
+    localStorage.setItem("points", "0")
+    document.getElementById("text").innerText = ("0")
+    data_reset = true
+    alert(points)
+  }
+  else if (data_reset == (false)){
+   alert(localStorage.getItem("points"))
+    points = localStorage.getItem("points")
+   // document.getElementById("text").innerText = localStorage.getItem("points")
+   alert(localStorage.getItem("points"))
+  }
+
+  //data save
+
+
+blue.onclick = function(e){
+    window.location.replace("assets/scenes/win/win.html")
+}
+</script>
