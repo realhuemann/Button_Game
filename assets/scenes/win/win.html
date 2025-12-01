@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<h1 id="test">you win</h1>
+<img src="winner.png" alt="winner_image" id="image">
+<p id="highscore">high score loading</p>
+</html>
+
+<script>
+ var points = localStorage.getItem("points")
+ var hs =  localStorage.getItem("highscore")
+ var hsd = document.getElementById("highscore")
+ var image = document.getElementById("image")
+
+ test = document.getElementById("test")
+ 
+ if (points < 0){
+    test.innerText = ("your not slick, we know you cheated, your data has been delted")
+    localStorage.clear()
+    image.src = ("mega.png")
+    setTimeout(() => {
+        window.location.replace("../bankrupt/gameover.html")
+    }, 5000);    
+ }
+ 
+ else if (points < 6){
+test.innerText = ("fail")
+    }
+    else if (points < 21){
+test.innerText = ("noob")
+    }
+    else if (points < 51){
+        test.innerText = ("novice")
+    }
+
+    else if (points < 101){
+test.innerText = ("advanced")
+    }
+
+    else if (points < 201){
+test.innerText = ("pro")
+    }
+
+    else if (points < 301){
+        test.innerText = ("sweat")
+    }
+else if (points > 501){
+    test.innerText = ("legend")
+}
+else if (points < 1001){
+    test.innerText = ("famous")
+}
+else if (points < 5001){
+    test.innerText = ("unheard of")
+}
+else if (points < 10001){
+    test.innerText = ("insane")
+}
+else if (points < 20001){
+    test.innerText = ("world record holder")
+}
+else {
+    test.innerText = ("ohio")
+}
+
+
+//hs data retrival
+
+if (hs < points){
+    localStorage.setItem("highscore", (points))
+    hs = localStorage.getItem("highscore")
+    window.alert("new high score!")
+    hsd.innerText = ("new high score:" + hs)
+    points = 0
+    localStorage.setItem("points", ("0"))
+}
+else{
+hsd.innerText = ("highscore" + hs)
+localStorage.setItem("points", ("0"))
+}
+
+
+</script>

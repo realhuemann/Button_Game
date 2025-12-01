@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>bankrupt</title>
+    <link rel="icon" type="image/x-icon" href="mega.png">
+</head>
+<body>
+    <img src="bankrupt.png" alt="bankrupt" id="bankrupt">
+    <h3 id="bctext">try agin (y/n)</h3>
+</body>
+</html>
+
+<script>
+var sound = new Audio ("dang.mp3")
+var mouse = 0
+
+
+document.addEventListener("keypress", function(event) {
+  if (event.keyCode == 110) {
+    window.location.replace("https://google.com")
+    setInterval(() => {
+        window.alert("ERR 001: failed to close window")    
+    }, 3000);
+   
+    //no
+  }
+  
+  if (event.keyCode == 121) {
+    window.location.replace("../../../index.html")
+    setInterval(() => {
+       window.alert("ERR 002: failed to open new instence of index.html") 
+    }, 3000);
+  
+    //yes
+  }
+
+  if (event.keyCode){
+    alert(keyCode)
+  }
+});
+
+localStorage.setItem("points", "0")
+
+</script>
+
+<style>
+#bctext {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; position: relative; }
+#bankrupt {width:900px; position: relative;}
+</style>
